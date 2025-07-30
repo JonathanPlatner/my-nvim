@@ -1,7 +1,3 @@
-vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
-end)
-
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
@@ -15,14 +11,10 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 print(lazypath)
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 
-require 'options.keymap'
-require 'options.events'
+require 'config.keymap'
+require 'config.events'
+require 'config.options'
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -31,6 +23,7 @@ require("lazy").setup({
 	  require 'plugins.telescope',
 	  require 'plugins.mini',
 	  require 'plugins.gitsigns',
+	  require 'plugins.which-key',
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
