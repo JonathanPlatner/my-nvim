@@ -30,6 +30,7 @@ require("lazy").setup({
 	  require 'plugins.theme',
 	  require 'plugins.telescope',
 	  require 'plugins.mini',
+	  require 'plugins.gitsigns',
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
